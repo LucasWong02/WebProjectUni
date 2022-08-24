@@ -1,0 +1,96 @@
+﻿@{
+    ViewData["Title"] = "Perfil";
+}
+
+<style>
+    body {
+        color: #202020;
+    }
+
+    input {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <center>
+
+        <!-- Background image -->
+        <div class="p-5 bg-image" style=" background-image: url('https://i.imgur.com/xuzuD24.png'); height: 300px; ">
+            <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+                ¡Descubre tu nuevo empleo <br />
+                <span> con nostros!</span>
+            </h1>
+        </div>
+        <!-- Background image -->
+        <!--Main Card-->>
+        <div class="card " style="
+          margin-top: -30px;
+          margin-bottom: 10px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(20px);">
+            <div class="card-body py-4 px-md-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-5">Crea tu cuenta</h2>
+                        <form asp-action="CreateUser" method="post">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input name="FirstName" type="text" id="FirstName" class="form-control" />
+                                        <label class="form-label" for="form3Example1">Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input name="LastName" type="text" id="LastName" class="form-control" />
+                                        <label class="form-label" for="form3Example2">Apellido</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label for="email">Correo electrónico</label>
+                                <input id="Mail" type="email" class="form-control" name="Mail" value="" required autofocus>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input name="Password" type="password" id="Password" class="form-control" />
+                                <label class="form-label" for="form3Example4">Contraseña</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Crear cuenta
+                            </button>
+                          
+
+                            <!-- Register buttons -->
+                            <div class="text-center">
+                                <p>o crea tu cuenta con:</p>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src="https://hackaday.com/wp-content/uploads/2016/08/google-g-logo.png?resize=400" alt="google" style="width:23px;height:22px;">
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src="http://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png" alt="google" style="width:42px;height:25px;">
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="google" style="width:25px;height:23px;">
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main Card-->
+
+    </center>
+</body>
+

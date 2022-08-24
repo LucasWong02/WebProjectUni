@@ -1,0 +1,184 @@
+﻿@model WebApp.Models.Dash
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutDash.cshtml";
+}
+
+<script type="text/javascript">function show(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+    function hideScript(id) {
+        document.getElementById(id).style.display = 'hide';
+    }
+    function hide(id) {
+        document.getElementById(id).style.display = 'none';
+    }</script>
+
+<!--SearchUtil-->
+<div class="row justify-content-center"
+    <div class="p-5 bg-image" style=" background-image: url('https://i.imgur.com/xuzuD24.png'); height: 300px; ">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+            Bienvenido @Model.Persona.FirstName <br />
+        </h1>
+    </div>
+</div>
+
+<container>
+    <div class="row justify-content-center">
+        <div class="col-3">
+            <h1 style="font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size: 18px;">Tipo de trabajo</h1>
+        </div>
+        <div class="col-3">
+            <h2 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 18px; padding-left: 25px;">Ubicación</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center pb-5 pt-2">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="search" class="form-control rounded mx-2" placeholder="Puesto, empresa o palabra clave" style="height:55px;" />
+                <input type="search" class="form-control rounded mx-2" placeholder="Ciudad, estado o país" style="height: 55px;" />
+                <div style="padding-top: 8px;">
+                    <button type="button" class="btn btn-outline-primary" style="width: 90px; height: 40px; padding-top: 4px; align-content: center;">Buscar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</container>
+<!--SearchUtil-->
+<div class="container-fluid">
+    <div class="row">
+        <!--0fertasEmpleo-->
+        <div class="col-md-6">
+            @foreach (var job in Model.Trabajos)
+            {
+                <div class="list-group-item list-group-item-action border-0" style="background-color: #F4F4F5">
+                    <fecha>Ayer</fecha>
+                    <div class="d-flex align-items-start border-bottom border-dark">
+                        <img src="https://cdn.imgbin.com/16/10/7/imgbin-logo-generic-brand-others-rsxzgert8jGGw7zqkcJjAy1tH.jpg" class="rounded-circle mr-1" alt="gen company" width="50" height="40">
+                        <div class="flex-grow-1 ml-1" style='color: #3F3F46'>
+                            <h3>@job.Company</h3>
+                            <div class="small"><span style='color: #18181B;'></span>• @job.Place</div>
+                            <div class="py-3" style='color: #18181B; font-weight:bold;'>
+                                @job.JobTitle
+                            </div>
+                            <button type="button" class="btn btn-outline-primary" onclick="show('@job.Company');">Ampliar</button>
+
+                            <p id="justify" class="flex-grow-1 ml-mt-3" style='color: #71717A'>@job.SumDescription</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <!--0fertasEmpleo-->
+        <div class="col-md-6">
+            @foreach (var job in Model.Trabajos)
+            {
+                <div id="@job.Company" style="display: none;">
+                    <button type="button" class="close" aria-label="Close" onclick="hide('@job.Company');">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="card mb-4 mb-md-4" style="background-color: #F6F6F6;">
+                        <div class="d-flex align-items-start pt-4 pl-4">
+                            <img src="https://scontent.fgdl2-2.fna.fbcdn.net/v/t1.6435-9/89241890_775020493020830_7158387022619475968_n.png?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=CZtkLtaJvoAAX9eMB7O&_nc_ht=scontent.fgdl2-2.fna&oh=00_AT9c-fy2p76SY_Str9ArO3oCffvhx11qNjvDpz-wJeq0XA&oe=62B79598" class="rounded-circle mr-1" alt="gen company" width="40" height="40">
+                            <div class="flex-grow-1 ml-1" style='color: #3F3F46'>
+                                @job.Company
+                                <div class="small"><span style='color: #18181B;'></span>• @job.Place</div>
+                                <div class="py-3" style='color: #3B82F6; font-weight: bold;'>
+                                    @job.JobTitle
+                                </div>
+                                <p id="justify" class="flex-grow-1 ml-mt-3" style='color: #71717A'>@job.Money</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-md-4" style="background-color: #F6F6F6;">
+                        <div class="d-flex align-items-start pt-4 pl-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                            </svg>
+                            <div class="flex-grow-1 ml-3" style='color: #3F3F46'>
+                                Urge Contratar
+                                <div class="small">
+                                    <span style='color: #18181B;'></span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                                    </svg>Trabajo actvio desde hace 15 dias
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="rcard3" class="card mb-4 mb-md-4" style="background-color: #FFFFFF;">
+                                        <div class="d-flex align-items-start">
+                                            <div class="flex-grow-1 pl-3 pt-3">
+                                                <div style='color: #18181B; font-weight:bold;'>Descripción de trabajo</div>
+                                                <p id="justify2" class="flex-grow-1 ml-1 pt-4" style='color: #71717A'>
+                                                    @job.Descripcion
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button id="rcard4" class="card mb-md-4 mx-auto" style="background-color: #E8A3A3; width: 180px; height: 55px;" asp-controller="Home" asp-action="AddApplication" asp-route-comp=@job.Company asp-route-per=@Model.Persona>
+                        <div class="d-flex align-items-start pt-3 pl-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-flag" viewBox="0 0 16 16">
+                                <path d="M14.778.085A.5.5 0 0 1 15 .5V8a.5.5 0 0 1-.314.464L14.5 8l.186.464-.003.001-.006.003-.023.009a12.435 12.435 0 0 1-.397.15c-.264.095-.631.223-1.047.35-.816.252-1.879.523-2.71.523-.847 0-1.548-.28-2.158-.525l-.028-.01C7.68 8.71 7.14 8.5 6.5 8.5c-.7 0-1.638.23-2.437.477A19.626 19.626 0 0 0 3 9.342V15.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 1 0v.282c.226-.079.496-.17.79-.26C4.606.272 5.67 0 6.5 0c.84 0 1.524.277 2.121.519l.043.018C9.286.788 9.828 1 10.5 1c.7 0 1.638-.23 2.437-.477a19.587 19.587 0 0 0 1.349-.476l.019-.007.004-.002h.001M14 1.221c-.22.078-.48.167-.766.255-.81.252-1.872.523-2.734.523-.886 0-1.592-.286-2.203-.534l-.008-.003C7.662 1.21 7.139 1 6.5 1c-.669 0-1.606.229-2.415.478A21.294 21.294 0 0 0 3 1.845v6.433c.22-.078.48-.167.766-.255C4.576 7.77 5.638 7.5 6.5 7.5c.847 0 1.548.28 2.158.525l.028.01C9.32 8.29 9.86 8.5 10.5 8.5c.668 0 1.606-.229 2.415-.478A21.317 21.317 0 0 0 14 7.655V1.222z" />
+                            </svg>
+                            <p style='color: #18181B; font-weight: bold; padding-left: 8px;'>Aplicar</p>
+                        </div>
+                    </button>
+                    <!--MostrarOferta-->
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    fecha {
+        padding-left: 690px;
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    #justify {
+        text-align: justify;
+        width: 88%;
+    }
+
+    #justify2 {
+        text-align: justify;
+        width: 92%;
+        font-weight: 300;
+    }
+
+    #rcard1 {
+        border-radius: 25px;
+        border: 4px solid #9BA5FF
+    }
+
+    #rcard2 {
+        border-radius: 25px;
+        border: 2px solid #B2B9FE
+    }
+
+    #rcard3 {
+        border-radius: 25px;
+    }
+
+    #rcard4 {
+        border-radius: 12px;
+    }
+</style>
+

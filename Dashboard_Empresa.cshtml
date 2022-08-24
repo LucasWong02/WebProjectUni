@@ -1,0 +1,297 @@
+﻿@model WebApp.Models.Dash
+
+
+<body>
+    <div class="d-flex" style="background-color: #909FC7;">
+
+        <!-- Sidebar -->
+        <div id="sidebar-container" style="background-color: #FFFFFF;">
+            <div class="logo">
+                <img src="https://joal.net/img/ijalti-logo.jpg" style="width:155px;height:50px;">
+            </div>
+            <div class="menu">
+                <a href="#" class="d-block p-3" style="color: #99B2C6;"><i class="icon ion-md-apps mr-2 lead" style="color: #99B2C6;"></i> Dashboard</a>
+                <a asp-controller="Home" asp-action="Usuarios_Aplic" class="d-block p-3" style="color: #99B2C6;"><i class="icon ion-md-stats mr-2 lead" style="color: #99B2C6;"></i> Usuarios</a>
+                <a asp-controller="Home" asp-action="RegistroJob" class="d-block p-3" style="color: #99B2C6;"><i class="icon ion-md-stats mr-2 lead" style="color: #99B2C6;"></i> Registrar Job</a>
+            </div>
+            <div class="footerProfile">
+                <div class="col-sm-4 center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-fluid rounded-circle" style="width: 34px; height:34px;">
+                    <a style="padding-left:10px;">Maximiliano</a>
+                    <i class="icon ion-md-exit" onclick="signOut(this)" style="padding-left: 12px; padding-top: 4px; cursor:pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+
+        <div class="container-fluid" style="overflow-y: scroll; max-height: 870px;">
+            <div class="titleDash">
+                Dashboard
+            </div>
+            <div class="container-fluid my-1">
+                <div class="row justify-content-center" style="color: #06152B;">
+                    <div class="col-3 ">
+                        <div class="card mb-3" style="max-width: 400px;">
+                            <div class="row g-1">
+                                <div class="col-md-4 align-self-center">
+                                    <i class="icon ion-md-today" style="color: #2C43B0; font-size: 40px; padding-left: 55px;"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-text p-1">20+</h5>
+                                        <p class="card-text">Solicitudes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card mb-3" style="max-width: 400px;">
+                            <div class="row g-1">
+                                <div class="col-md-4 align-self-center">
+                                    <i class="icon ion-md-checkbox-outline" style="color: #2C43B0; font-size: 40px; padding-left: 55px;"> </i>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-text p-1">190+</h5>
+                                        <p class="card-text">Contrataciones</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <div class="card" style="width: 20rem; height:22rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Distribuición de vacantes </h5>
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 p-4">
+                        <div class="card" style="width: 30rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">Contrataciones por mes </h5>
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid my-4">
+                <div class="row justify-content-center">
+                    <div class="card" style="width: 45rem;">
+                        <div class="card-body">
+                            <h5 class="card-title ">Contrataciones Recientes</h5>
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                ID de contratación
+                                            </a>
+                                        </th>
+                                        <th scope="col" style="width:200px;">Nombre</th>
+                                        <th scope="col">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Interacciones
+                                            </a>
+                                        </th>
+                                        <th scope="col">Salario Anual</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="height:40px">
+                                        <th scope="row">#12345</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 35px; height: 35px;">
+                                                <div class="ml-3 center">
+                                                    <p>John Doe</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-content-center "></div>
+                                            <span class="badge text-dark bg-info bg-opacity-25 ms-4  " style="font-size:18px"> 325</span>
+                                        </td>
+                                        <td>
+                                            <div class="ms-3">
+                                                $30000
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">#12345</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" style="width: 35px; height: 35px;">
+                                                <div class="ml-3 center">
+                                                    <p>John Doe</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-content-center "></div>
+                                            <span class="badge text-dark bg-info bg-opacity-25 ms-4  " style="font-size:18px;"> 325</span>
+                                        </td>
+                                        <td>
+                                            <div class="ms-3">
+                                                $30000
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">#12345</th>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" style="width: 35px; height: 35px;">
+                                                <div class="ml-3 center">
+                                                    <p>John Doe</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-content-center "></div>
+                                            <span class="badge text-dark bg-info bg-opacity-25 ms-4 " style="font-size:18px;"> 325</span>
+                                        </td>
+                                        <td>
+                                            <div class="ms-3">
+                                                $30000
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+
+<style>
+    :root {
+        --primary: #909FC7;
+        --light: #ffffff;
+        --grey: #efefef;
+    }
+
+    body {
+        font-family: "Muli", sans-serif;
+        color: var(--primary);
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    #sidebar-container {
+        min-height: 870px;
+        max-width: 200px;
+    }
+
+        #sidebar-container .logo {
+            padding: .875rem 1.25rem;
+        }
+
+        #sidebar-container .menu {
+            width: 18rem;
+        }
+
+        #sidebar-container .footerProfile {
+            position: absolute;
+            bottom: 5rem;
+            left: 0;
+        }
+
+    .UserDetails {
+        max-height: 870px;
+        bottom: 10rem;
+        color: black;
+    }
+
+    .titleDash {
+        padding-top: 30px;
+        padding-left: 28px;
+        font-family: "Muli", sans-serif;
+        font-weight: 600;
+        font-size: 25.63px;
+        color: #01060D;
+    }
+
+    .center {
+        display: flex;
+        align-items: center;
+        color: #06152B;
+    }
+</style>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>const labels = [
+        'Ingenieros',
+        'Licenciaturas',
+        'Otros',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            labels: 'My First dataset',
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            cutout: "70%",
+            data: [3, 10, 5],
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {}
+    };</script>
+<script>const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );</script>
+
+<script>const ctx = document.getElementById('myChart2');
+    const myChart2 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', "Julio"],
+            datasets: [{
+                label: 'Personas',
+                data: [23, 15, 30, 22, 10, 23, 5],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+        }
+    });</script>

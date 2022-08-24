@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "Perfil";
+}
+
+<style>
+    body {
+        color: #202020;
+    }
+
+    input {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <center>
+        <!--Main Card-->>
+        <div class="card " style="
+          margin-top: -30px;
+          margin-bottom: 10px;
+          background: hsla(0, 0%, 100%, 0.8);
+          backdrop-filter: blur(20px);">
+            <div class="card-body py-4 px-md-5">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold mb-5">Crea cuenta de Empresa</h2>
+                        <form action="AddJob" method="post">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            
+                            <div class="form-outline">
+                                <label>Descripcion Ampliada</label>
+                                <input name="Descripcion" type="text" id="Descripcion" class="form-control" />
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input name="JobTitle" type="text" id="JobTitle" class="form-control" />
+                                        <label class="form-label" for="form3Example1">JobTitle</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4" style="height: 40px;">
+                                    <div class="form-outline">
+                                        <input name="Place" type="text" id="Place" class="form-control" />
+                                        <label class="form-label" for="form3Example2">Place</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <label>Empresa</label>
+                                <input id="Company" class="form-control" name="Company" type="text">
+                            </div>
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label>Money</label>
+                                <input id="Money" class="form-control" name="Money" type="text">
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input name="position" id="position" class="form-control" type="text"/>
+                                <label class="form-label" for="form3Example4">Posicion</label>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input name="SumDescription" id="SumDescription" class="form-control" />
+                                <label class="form-label" for="form3Example4">Descripcion Resumida</label>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4">
+                                Crear cuenta
+                            </button>
+
+
+                            <!-- Register buttons -->
+                            <div class="text-center">
+                                <p>o crea tu cuenta con:</p>
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src="https://hackaday.com/wp-content/uploads/2016/08/google-g-logo.png?resize=400" alt="google" style="width:23px;height:22px;">
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src="http://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png" alt="google" style="width:42px;height:25px;">
+                                </button>
+
+                                <button type="button" class="btn btn-link btn-floating mx-1">
+                                    <img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="google" style="width:25px;height:23px;">
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main Card-->
+
+    </center>
+</body>
+
